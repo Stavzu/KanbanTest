@@ -1,0 +1,54 @@
+{
+  "id": "1",
+  "title": "First board",
+  "boards": [
+    {
+      "id": "1",
+      "title": "ToDo",
+      "cards": [
+        {
+          "id": "1",
+          "title": "First Card Todo",
+          "description": "Lorem ipsum"
+        },
+        {
+          "id": "2",
+          "title": "Second Card",
+          "description": "Lorem ipsum"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Doing",
+      "cards": [
+        {
+          "id": "1",
+          "title": "First Card Doing",
+          "description": "Lorem ipsum"
+        },
+        {
+          "id": "2",
+          "title": "Second Card",
+          "description": "Lorem ipsum"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Done",
+      "cards": [
+        {
+          "id": "1",
+          "title": "First Card done",
+          "description": "Lorem ipsum"
+        },
+        {
+          "id": "2",
+          "title": "Second Card Done",
+          "description": "Lorem ipsum"
+        }
+      ]
+    }
+  ]
+}

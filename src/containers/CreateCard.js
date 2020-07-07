@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { createCard } from "../actions/CardsActions";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import styles from "../styles/Styles";
+import useSetState from "../useSetState";
 
 const StyledForm = styled.form`
   background: ${styles.color.apricot};
@@ -18,16 +19,19 @@ const initialInput = {
 
 const CreateCard = ({ boardId }) => {
   const dispatch = useDispatch();
-  const [input, setInput] = useState(initialInput);
+  const [input, setInput] = useSetState(initialInput);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInput({ ...input, [name]: value });
+    setInput({ [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createCard(boardId, input));
+    clear();
+  };
+
+  const clear = () => {
     setInput(initialInput);
   };
 

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { createBoard } from "../actions/BoardsActions";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import styles from "../styles/Styles";
+import useSetState from "../useSetState";
 
 const StyledForm = styled.form`
   input,
@@ -36,8 +37,12 @@ const StyledForm = styled.form`
   }
 `;
 
+const initialInput = {
+  title: "",
+};
+
 const CreateBoard = () => {
-  const [boardTitle, setBoardTitle] = useState("");
+  const [boardTitle, setBoardTitle] = useSetState(initialInput);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -47,7 +52,7 @@ const CreateBoard = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createBoard(boardTitle));
-    setBoardTitle({ title: "" });
+    setBoardTitle(initialInput);
   };
 
   return (

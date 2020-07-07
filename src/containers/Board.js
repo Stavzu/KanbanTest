@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import styles from "../styles/Styles";
-import { Button } from "@material-ui/core";
 import { removeBoard } from "../actions/BoardsActions";
-import { AddCircle } from "@material-ui/icons";
-import CreateCard from "./CreateCard";
 import Card from "./Card";
+import Button from "../components/Button";
+import { Clear } from "@material-ui/icons";
+import CreateCard from "./CreateCard";
 
 const StyledBoard = styled.div`
-  background: ${styles.color.apricot};
-  background: ${styles.color.lightApricot};
-  border: 1px solid ${styles.color.lightApricot};
+  background: ${styles.color.white};
+  box-shadow: ${styles.boxShadow};
   border-radius: ${styles.borderRadius};
   position: relative;
   padding: 0.8rem;
@@ -21,51 +20,57 @@ const StyledBoard = styled.div`
   }
   > button {
     position: absolute;
-    color: ${styles.color.lightApricot};
-    background: transparent;
-    padding: 1rem;
-    top: 0;
-    right: 0;
-    transition: ${styles.transition};
-    &:hover {
-      background: transparent;
-      color: ${styles.color.myDark};
-    }
-  }
-  > div,
-  button {
-    margin-top: 0.5rem;
+    top: 0.5rem;
+    right: 1rem;
   }
 `;
 
+const StyledAddCard = styled.div`
+  text-align: right;
+  > button {
+    background: transparent;
+    padding: 0;
+    color: ${styles.color.myBlue};
+  }
+`;
+
+const AddCard = ({ boardId }) => {
+  const [toggle, setToggle] = useState(false);
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
+
+  return (
+    <StyledAddCard>
+      <Button onClick={handleToggle}>
+        {toggle ? <Clear /> : <Button>+ Add Card</Button>}
+      </Button>
+      {toggle && <CreateCard boardId={boardId} key={boardId} />}
+    </StyledAddCard>
+  );
+};
+
 const Board = ({ boardId }) => {
   const dispatch = useDispatch();
-  const [toggle, setToggle] = useState(true);
   const board = useSelector((state) => state.boards.entities[boardId]);
 
   const handleRemove = (e) => {
     e.preventDefault();
     dispatch(removeBoard(board.id));
   };
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
 
   return (
     <StyledBoard>
       <h2>{board.title}</h2>
-      <Button onClick={handleToggle}>
-        <AddCircle />
+      <Button type="submit" onClick={handleRemove}>
+        Remove board
       </Button>
-      {toggle && <CreateCard boardId={board.id} />}
       <div>
         {board.cards.map((cardId) => (
           <Card cardId={cardId} />
         ))}
-        <Button type="submit" fullWidth onClick={handleRemove}>
-          Remove board
-        </Button>
       </div>
+      <AddCard boardId={boardId} />
     </StyledBoard>
   );
 };

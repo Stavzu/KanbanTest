@@ -8,7 +8,7 @@ import styles from "../styles/Styles";
 import useSetState from "../useSetState";
 
 const StyledForm = styled.form`
-  background: ${styles.color.apricot};
+  background: ${styles.color.gray};
   padding: 0.5rem;
 `;
 
@@ -54,11 +54,12 @@ const CreateCard = ({ boardId }) => {
         fullWidth
       />
       <Button
-        fullWidth
+        colorBackground={styles.color.myBlue}
+        colorText={styles.color.white}
         type="submit"
         disabled={!input.title || !input.description}
       >
-        Add Card
+        Add
       </Button>
     </StyledForm>
   );

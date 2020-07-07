@@ -6,9 +6,12 @@ import Boards from "./containers/Boards";
 import GlobalStyle from "./styles/GlobalStyles";
 
 const StyledApp = styled.div`
+  background: ${styles.color.myBackground};
+  height: 100vh;
   header {
-    background: ${styles.color.apricot};
+    background: ${styles.color.white};
     padding: 0.5rem;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
   }
 `;
 

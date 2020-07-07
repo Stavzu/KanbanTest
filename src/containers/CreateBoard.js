@@ -14,7 +14,11 @@ const StyledForm = styled.form`
     text-align: center;
   }
   input {
-    width: 100%;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    border-bottom: 1.5px solid ${styles.color.myBlue};
   }
   button {
     margin: auto;
@@ -26,6 +30,7 @@ const StyledForm = styled.form`
     padding: 1rem;
     input {
       max-width: 400px;
+      border-bottom: 1.5px solid ${styles.color.myBlue};
       min-width: 50%;
       margin: 0 2rem;
       text-align: left;
@@ -63,7 +68,12 @@ const CreateBoard = () => {
         placeholder="Write new board title..."
         value={boardTitle.title}
       />
-      <Button type="submit" disabled={!boardTitle.title}>
+      <Button
+        colorBackground={styles.color.myBlue}
+        colorText={styles.color.white}
+        type="submit"
+        disabled={!boardTitle.title}
+      >
         Add board
       </Button>
     </StyledForm>

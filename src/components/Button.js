@@ -2,31 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import styles from "../styles/Styles";
 import { DeleteForever } from "@material-ui/icons";
+import { Clear } from "@material-ui/icons";
 
 const StyledButton = styled.button`
   background: ${(props) =>
     (props.colorBackground && props.colorBackground) ||
-    (props.removeIcon && "transparent")};
+    props.removeIcon ||
+    (props.clear && "transparent")};
   color: ${(props) =>
     props.colorText ? props.colorText : `${styles.color.myDark}`};
   border: ${styles.color.white};
   width: ${(props) => props.fullWidth && "100%"};
   padding: 0.5rem 2rem;
-
   border-radius: ${styles.borderRadius};
   opacity: 0.8;
   transition: ${styles.transition};
 
-  &:hover {
-    background: ${(props) =>
-      props.addIcon || props.removeIcon
-        ? "transparent"
-        : `${styles.color.myDark}`};
-
-    color: ${styles.color.white};
-  }
-
-  &:disabled {
+  * &:disabled {
     background: ${styles.color.lightGrey};
     color: ${styles.color.white};
     border: ${styles.color.white};
@@ -44,6 +36,7 @@ const Button = ({
   colorBackground,
   fullWidth,
   removeIcon,
+  clear,
 }) => {
   return (
     <StyledButton
@@ -55,7 +48,7 @@ const Button = ({
       colorBackground={colorBackground}
       fullWidth={fullWidth}
     >
-      {children} {removeIcon && <DeleteForever />}
+      {children} {removeIcon && <DeleteForever />} {clear && <Clear />}
     </StyledButton>
   );
 };

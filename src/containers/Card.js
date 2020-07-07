@@ -6,9 +6,10 @@ import Button from "../components/Button";
 import styles from "../styles/Styles";
 
 const StyledCard = styled.div`
-  background: ${styles.color.apricot};
+  background: ${styles.color.lightGrey};
   color: ${styles.color.myDark};
-  border: 1px solid ${styles.color.apricot};
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 1em;
   position: relative;
   margin-bottom: 0.5rem;

@@ -11,7 +11,6 @@ const StyledForm = styled.form`
   input,
   button {
     display: block;
-    text-align: center;
   }
   input {
     width: 70%;

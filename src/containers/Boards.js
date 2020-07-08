@@ -15,7 +15,7 @@ const StyledBoards = styled.div`
     grid-template-columns: 1fr 1fr;
   }
   @media (min-width: ${styles.media.mobile}) {
-    grid-template-columns: repeat(auto-fit, minMax(350px, 500px));
+    grid-template-columns: repeat(auto-fit, minMax(350px, 400px));
   }
 `;
 

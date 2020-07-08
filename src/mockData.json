@@ -23,12 +23,12 @@
       "title": "Doing",
       "cards": [
         {
-          "id": "1",
+          "id": "3",
           "title": "First Card Doing",
           "description": "Lorem ipsum"
         },
         {
-          "id": "2",
+          "id": "4",
           "title": "Second Card",
           "description": "Lorem ipsum"
         }
@@ -39,12 +39,12 @@
       "title": "Done",
       "cards": [
         {
-          "id": "1",
+          "id": "5",
           "title": "First Card done",
           "description": "Lorem ipsum"
         },
         {
-          "id": "2",
+          "id": "6",
           "title": "Second Card Done",
           "description": "Lorem ipsum"
         }

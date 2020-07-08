@@ -42,9 +42,18 @@ const AddCard = ({ boardId }) => {
 
   return (
     <StyledAddCard>
-      <Button onClick={handleToggle}>
-        {toggle ? <Clear /> : <Button>+ Add Card</Button>}
-      </Button>
+      <div onClick={handleToggle}>
+        {toggle ? (
+          <Clear />
+        ) : (
+          <Button
+            colorBackground={styles.color.myBlue}
+            colorText={styles.color.white}
+          >
+            Add Card
+          </Button>
+        )}
+      </div>
       {toggle && <CreateCard boardId={boardId} key={boardId} />}
     </StyledAddCard>
   );
@@ -66,9 +75,9 @@ const Board = ({ boardId }) => {
         Remove board
       </Button>
       <div>
-        {board.cards.map((cardId) => (
-          <Card cardId={cardId} />
-        ))}
+        {board.cards.map((cardId) => {
+          return <Card cardId={cardId} key={cardId} />;
+        })}
       </div>
       <AddCard boardId={boardId} />
     </StyledBoard>

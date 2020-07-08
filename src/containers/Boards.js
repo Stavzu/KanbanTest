@@ -1,8 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import styles from "../styles/Styles";
 import Board from "./Board";
+import { useAppContext } from "../useAppContext";
 
 const StyledBoards = styled.div`
   display: grid;
@@ -20,7 +20,7 @@ const StyledBoards = styled.div`
 `;
 
 const Boards = () => {
-  const boards = useSelector((state) => state.boards.ids);
+  const { boards } = useAppContext();
   return (
     <StyledBoards>
       {boards.map((boardId) => (

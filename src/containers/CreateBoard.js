@@ -28,7 +28,7 @@ const StyledForm = styled.form`
     justify-content: flex-end;
     padding: 1rem;
     input {
-      max-width: 400px;
+      max-width: 250px;
       border-bottom: 1.5px solid ${styles.color.myBlue};
       min-width: 50%;
       margin: 0 2rem;

@@ -1,3 +1,15 @@
+This project is in progress right now, lot of features and fixes is going to be added soon
+
+WIP:
+
+- test JEST, test styled components
+- add loading component and error
+- mobile first => create nav bar, mobile menu
+- add more features
+- no eslint or prettier => no need now
+- refactor
+- add more hooks and fix folder
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

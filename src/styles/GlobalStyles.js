@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     color: ${styles.color.myDark};
+    background: ${styles.color.myBackground};
   }
   input, button {
   outline: none;

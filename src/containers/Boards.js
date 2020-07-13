@@ -8,6 +8,7 @@ const StyledBoards = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr;
+  margin-bottom: 3rem;
   > div {
     margin: 1.5rem;
   }

@@ -4,7 +4,7 @@ import { useAppContext } from "../useAppContext";
 import styles from "../styles/Styles";
 
 const StyledFooter = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background: ${styles.color.myBlue};
   color: ${styles.color.white};

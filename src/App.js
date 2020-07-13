@@ -9,8 +9,6 @@ import Footer from "./containers/Footer";
 import Context from "./context";
 
 const StyledApp = styled.div`
-  background: ${styles.color.myBackground};
-  height: 100vh;
   header {
     background: ${styles.color.white};
     padding: 0.5rem;

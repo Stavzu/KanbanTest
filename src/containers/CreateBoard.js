@@ -86,7 +86,7 @@ const CreateBoardForm = () => {
 const CreateBoard = () => {
   const { boards } = useAppContext();
   const boardsLength = boards.length;
-  const maxLength = 4;
+  const maxLength = 8;
   if (boardsLength >= maxLength) {
     return (
       <StyledMaxLengthBoardText>

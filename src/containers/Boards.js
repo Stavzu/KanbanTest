@@ -21,6 +21,7 @@ const StyledBoards = styled.div`
 
 const Boards = () => {
   const { boards } = useAppContext();
+
   return (
     <StyledBoards>
       {boards.map((boardId) => (

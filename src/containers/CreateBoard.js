@@ -5,9 +5,15 @@ import { createBoard } from "../actions/BoardsActions";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import styles from "../styles/Styles";
+import { useAppContext } from "../useAppContext";
 import useSetState from "../useSetState";
 
-const StyledForm = styled.form`
+const StyledMaxLengthBoardText = styled.div`
+  text-align: center;
+  padding: 1.5rem;
+`;
+
+const StyledCreateBoardForm = styled.form`
   input,
   button {
     display: block;
@@ -45,10 +51,9 @@ const initialInput = {
   title: "",
 };
 
-const CreateBoard = () => {
+const CreateBoardForm = () => {
   const [boardTitle, setBoardTitle] = useSetState(initialInput);
   const dispatch = useDispatch();
-
   const handleChange = (e) => {
     setBoardTitle({ [e.target.name]: e.target.value });
   };
@@ -58,9 +63,8 @@ const CreateBoard = () => {
     dispatch(createBoard(boardTitle));
     setBoardTitle(initialInput);
   };
-
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledCreateBoardForm onSubmit={handleSubmit}>
       <Input
         name="title"
         onChange={handleChange}
@@ -75,8 +79,22 @@ const CreateBoard = () => {
       >
         Add board
       </Button>
-    </StyledForm>
+    </StyledCreateBoardForm>
   );
+};
+
+const CreateBoard = () => {
+  const { boards } = useAppContext();
+  const boardsLength = boards.length;
+  const maxLength = 4;
+  if (boardsLength >= maxLength) {
+    return (
+      <StyledMaxLengthBoardText>
+        No more that {boardsLength} boards please! Be more organized!
+      </StyledMaxLengthBoardText>
+    );
+  }
+  return <CreateBoardForm />;
 };
 
 export default CreateBoard;

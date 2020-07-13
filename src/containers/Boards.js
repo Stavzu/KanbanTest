@@ -11,6 +11,7 @@ const StyledBoards = styled.div`
   margin-bottom: 3rem;
   > div {
     margin: 1.5rem;
+    align-self: start;
   }
   @media (min-width: ${styles.media.tablet}) {
     grid-template-columns: 1fr 1fr;
